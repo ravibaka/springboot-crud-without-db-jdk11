@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-jdk11
+  namespace: springboot
+  labels:
+    app: springboot-jdk11
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: springboot-jdk11
+  template:
+    metadata:
+      labels:
+        app: springboot-jdk11
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        fsGroup: 2000
+        runAsUser: 1001
+        runAsGroup: 1001
+        supplementalGroups: [ 501 ]
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: springboot-jdk11
+          securityContext:
+            readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: false
+            seccompProfile:
+              type: RuntimeDefault
+            capabilities:
+              drop:
+                - ALL
+          image: registry-helse.nhn.no/ravib/springboot-crud-without-db-jdk11:latest
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+          resources:
