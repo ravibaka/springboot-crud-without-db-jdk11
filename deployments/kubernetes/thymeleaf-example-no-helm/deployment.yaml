@@ -21,8 +21,8 @@ spec:
         runAsUser: 1001
         runAsGroup: 1001
         supplementalGroups: [ 501 ]
-#      imagePullSecrets:
-#        - name: regcred
+      imagePullSecrets:
+        - name: registry-credentials-docker-hub
       containers:
         - name: springboot-jdk11
           securityContext:
