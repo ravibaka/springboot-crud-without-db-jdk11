@@ -33,7 +33,7 @@ spec:
             capabilities:
               drop:
                 - ALL
-          image: ravibaka/springboot-thymeleaf-crud-jdk11-helm:latest
+          image: ravibaka/springboot-thymeleaf-crud-jdk11:latest
           ports:
             - name: http
               containerPort: 8080
