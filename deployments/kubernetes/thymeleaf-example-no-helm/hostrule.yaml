@@ -2,10 +2,10 @@ apiVersion: ako.vmware.com/v1alpha1
 kind: HostRule
 metadata:
   name: springboot-jdk11
-  namespace: springboot
+  namespace: dev
 spec:
   virtualhost:
-    fqdn: springboot-jdk11.ncpeh.nhn.no
+    fqdn: springboot-jdk11.web.local
     analyticsPolicy:
       fullClientLogs:
         enabled: true

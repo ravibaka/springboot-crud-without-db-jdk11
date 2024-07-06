@@ -1,24 +1,45 @@
+#apiVersion: networking.k8s.io/v1
+#kind: Ingress
+#metadata:
+#  annotations:
+#    cert-manager.io/cluster-issuer: letsencrypt-prod
+#  name: springboot-jdk11
+#  namespace: dev
+#spec:
+#  ingressClassName: dev-ingress
+#  rules:
+#    - host: springboot-jdk11.dev.local
+#      http:
+#        paths:
+#          - backend:
+#              service:
+#                name: springboot-jdk11
+#                port:
+#                  number: 8080
+#            path: /
+#            pathType: ImplementationSpecific
+#  tls:
+#    - hosts:
+#        - springboot-jdk11.dev.local
+#      secretName: springboot-jdk11-tls-datacenter
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
   name: springboot-jdk11
-  namespace: springboot
+  namespace: dev
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: avi-ingress-class-datacenter
+  ingressClassName: nginx
   rules:
-    - host: springboot-jdk11.ncpeh.nhn.no
+    - host: springboot-jdk11.web.local
       http:
         paths:
-          - backend:
+          - path: /
+            pathType: Prefix
+            backend:
               service:
                 name: springboot-jdk11
                 port:
                   number: 8080
-            path: /
-            pathType: ImplementationSpecific
-  tls:
-    - hosts:
-        - springboot-jdk11.ncpeh.nhn.no
-      secretName: springboot-jdk11-tls-datacenter

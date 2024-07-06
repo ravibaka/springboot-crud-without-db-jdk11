@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: springboot-jdk11
-  namespace: springboot
+  namespace: dev
   labels:
     app: springboot-jdk11
 spec:
@@ -21,8 +21,8 @@ spec:
         runAsUser: 1001
         runAsGroup: 1001
         supplementalGroups: [ 501 ]
-      imagePullSecrets:
-        - name: regcred
+#      imagePullSecrets:
+#        - name: regcred
       containers:
         - name: springboot-jdk11
           securityContext:
@@ -33,7 +33,7 @@ spec:
             capabilities:
               drop:
                 - ALL
-          image: registry-helse.nhn.no/ravib/springboot-crud-without-db-jdk11:latest
+          image: ravibaka/springboot-thymeleaf-crud-jdk11-helm:latest
           ports:
             - name: http
               containerPort: 8080

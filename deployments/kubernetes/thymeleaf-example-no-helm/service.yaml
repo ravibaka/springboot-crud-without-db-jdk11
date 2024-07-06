@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: springboot-jdk11
-  namespace: springboot
+  namespace: dev
 spec:
   type: NodePort
   ports:
