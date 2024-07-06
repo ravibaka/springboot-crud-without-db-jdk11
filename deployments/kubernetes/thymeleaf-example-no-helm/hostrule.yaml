@@ -1,12 +1,12 @@
-apiVersion: ako.vmware.com/v1alpha1
-kind: HostRule
-metadata:
-  name: springboot-jdk11
-  namespace: dev
-spec:
-  virtualhost:
-    fqdn: springboot-jdk11.web.local
-    analyticsPolicy:
-      fullClientLogs:
-        enabled: true
-        throttle: DISABLED
+#apiVersion: ako.vmware.com/v1alpha1
+#kind: HostRule
+#metadata:
+#  name: springboot-jdk11
+#  namespace: dev
+#spec:
+#  virtualhost:
+#    fqdn: springboot-jdk11.web.local
+#    analyticsPolicy:
+#      fullClientLogs:
+#        enabled: true
+#        throttle: DISABLED
