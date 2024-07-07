@@ -36,6 +36,13 @@ spec:
     - host: springboot-jdk11.web.local
       http:
         paths:
+          - path: /favicon.ico
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: springboot-jdk11
+                port:
+                  number: 8080
           - path: /
             pathType: Prefix
             backend:
