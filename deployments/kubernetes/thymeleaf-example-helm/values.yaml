@@ -5,12 +5,13 @@ nameSpace: dev
 replicaCount: 1
 
 image:
-  repository: my-docker-repo/my-springboot-app
+  repository: ravibaka/springboot-thymeleaf-crud-jdk11
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "dev_001"
 
-imagePullSecrets: registry-credentials-docker-hub
+imagePullSecrets:
+  - name: registry-credentials-docker-hub
 nameOverride: ""
 fullnameOverride: ""
 
