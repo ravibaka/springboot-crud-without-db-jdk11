@@ -57,20 +57,19 @@ ingress:
   className: nginx
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
   hosts:
     - host: springboot-jdk11.web-test.local
       paths:
         - path: /favicon.ico
           pathType: ImplementationSpecific
           backend:
-            service:
-              name: springboot-jdk11
-              port:
-                number: 8080
+            serviceName: springboot-jdk11
+            servicePort: 8080
         - path: /
           pathType: Prefix
+          backend:
+            serviceName: springboot-jdk11
+            servicePort: 8080
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
